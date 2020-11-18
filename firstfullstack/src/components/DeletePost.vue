@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="delete-post">
         <button @click="deletePost">Delete</button>
     </div>
 </template>
@@ -40,5 +40,25 @@ import cookies from "vue-cookies"
 </script>
 
 <style lang="scss" scoped>
+#delete-post {
+    height: 5vh;
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+
+    button {
+        width: 25vw;
+        height: 100%;
+        background-color: white;
+        color: #1DA1F2;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.8rem;
+        border: none;
+        border: 1.5px solid #1DA1F2; 
+        border-radius: 1.5em;
+        font-weight: bold;
+    }
+}
 
 </style>

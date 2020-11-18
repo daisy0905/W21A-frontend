@@ -1,27 +1,49 @@
 <template>
     <div id="post">
-        <h3>Hi, {{ username }}, welcome to blog website!</h3>
-        <upload-post></upload-post>
-        <view-post></view-post>
+        <div v-if="login">
+            <h3>Hi, {{ username }}, welcome to blog website!</h3>
+            <upload-post></upload-post>
+            <view-post></view-post>
+            <log-out></log-out>
+        </div>
+        <div v-else>
+            <h3>You have not logined in!</h3>
+            <router-link to="Login">Login Page</router-link>
+        </div>
   </div>
 </template>
 
 <script>
 import UploadPost from "../components/UploadPost.vue"
 import ViewPost from "../components/ViewPost.vue"
+import LogOut from "../components/LogOut.vue"
 import cookies from 'vue-cookies'
 
 export default {
     name: 'App',
     components: {
     UploadPost,
-    ViewPost
+    ViewPost,
+    LogOut
     },
     data() {
         return {
-            username: cookies.get("username")
+            username: cookies.get("username"),
+            token: cookies.get("loginToken"),
+            login: true,
+            display: false
         }
     },
+    methods: {
+        loginCheck: function() {
+            if (this.token != undefined) {
+                this.login = true;
+            }
+        },
+        mounted: function() {
+            this.loginCheck();
+        }
+    }
 }
 </script>
 
