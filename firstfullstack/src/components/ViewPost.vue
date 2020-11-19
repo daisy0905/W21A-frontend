@@ -48,9 +48,6 @@ import DeletePost from "./DeletePost.vue"
             logUser() {
                 return cookies.get("username")
             }
-        },
-        mounted: function() {
-            this.getPost();
         }
     }
 </script>

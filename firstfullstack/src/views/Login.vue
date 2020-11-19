@@ -2,7 +2,7 @@
     <div id="login">
         <div id="header">
             <img src="https://mobiledevmemo.com/wp-content/uploads/2014/05/Twitter-Bird.png" alt="twitter logo">
-            <h1>Log in to Tweeter</h1>
+            <h1>Log in to Blog</h1>
         </div>
         <div id="login-area">
             <h3>Username</h3>
@@ -11,7 +11,6 @@
             <input type="text" id="password-input" class="input" v-model="password">
             <button class="btn" @click="loginUser">Log in</button>
             <h3>{{ loginStatus }}</h3>
-            <h4 @click="signUp">Sign up for Post</h4>
         </div>
     </div>
 </template>

@@ -1,6 +1,9 @@
 <template>
-    <div id="log-out">
-        <button @click="logOut">Log Out</button>
+    <div id="delete-profile">
+        <h3>Please input your password</h3>
+        <input type="text" id="password-input" v-model="password">
+        <button @click="deleteProfile">Confirm</button>
+        <h3>{{ status }}</h3>
     </div>
 </template>
 
@@ -12,31 +15,33 @@ import axios from 'axios'
         name: "delete-profile",
         data() {
             return {
+                password: "",
                 token: cookies.get("loginToken"),
                 status: ""
             }
         },
         methods: {
-            logOut: function() {
+            deleteProfile: function() {
                 this.Status = "Loading"
                 axios.request({
-                   url: "http://127.0.0.1:5000/login",
+                   url: "http://127.0.0.1:5000/users",
                    method: "DELETE",
                    headers: {
                     "Content-Type": "application/json",
                    },
                    data: {
-                       token: this.token
+                       token: this.token,
+                       password: this.password
                    }
                 }).then((response) => {
                     console.log(response);
-                    this.status = response;
-                    cookies.remove("username");
+                    this.status = "Account has been deleted!";
+                    cookies.remove("userName");
                     cookies.remove("loginToken")
-                    this.$router.push("/login");
+                    this.$router.push("/");
                 }).catch((error) => {
                     console.log(error);
-                    this.status = error;
+                    this.status = "Error";
                 }) 
             }
         }
@@ -51,16 +56,27 @@ import axios from 'axios'
     box-sizing: border-box;
 }
 
-#log-out {
+#delete-profile {
     height: 15vh;
     width: 100%;
     display: grid;
     justify-items: center;
     align-items: center; 
+    border: 1px solid #1DA1F2;
     border-radius: 1em;
 
+    #password-input {
+        margin: 0.5em;
+        width: 80%;
+        height: 5vh;
+        background-color: #E1E8ED;
+        border: 1px solid #AAB8C2;
+        border-bottom: 1px solid #1DA1F2;
+        text-align: center;
+    }
+
     button {
-        width: 40%;
+        width: 50%;
         height: 5vh;
         background-color: #1DA1F2;
         border-radius: 1.5em; 
@@ -68,6 +84,12 @@ import axios from 'axios'
         font-size: 1rem;
         font-family: Arial, Helvetica, sans-serif;
         color: white;
+    }
+
+    h3 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.8rem;
+        color: #1DA1F2;
     }
 }
 </style>
