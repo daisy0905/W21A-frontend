@@ -20,7 +20,7 @@ import axios from 'axios'
             logOut: function() {
                 this.Status = "Loading"
                 axios.request({
-                   url: "http://127.0.0.1:5000/login",
+                   url: "http://daisyblog.ml/api/login",
                    method: "DELETE",
                    headers: {
                     "Content-Type": "application/json",

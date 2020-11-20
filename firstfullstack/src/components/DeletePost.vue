@@ -18,7 +18,7 @@ import cookies from "vue-cookies"
         methods: {
             deletePost: function() {
                 axios.request({
-                    url: "http://127.0.0.1:5000/post",
+                    url: "http://daisyblog.ml/api/post",
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json"

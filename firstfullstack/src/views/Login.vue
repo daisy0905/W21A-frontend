@@ -32,7 +32,7 @@ import cookies from 'vue-cookies'
             loginUser: function() {
                 this.loginStatus = "Loading"
                 axios.request({
-                   url: "http://127.0.0.1:5000/login",
+                   url: "http://daisyblog.ml/api/login",
                    method: "POST",
                    headers: {
                     "Content-Type": "application/json",

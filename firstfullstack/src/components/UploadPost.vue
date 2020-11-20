@@ -18,7 +18,7 @@ import cookies from "vue-cookies"
         methods: {
             uploadPost: function() {
                 axios.request({
-                    url: "http://127.0.0.1:5000/post",
+                    url: "http://daisyblog.ml/api/post",
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"

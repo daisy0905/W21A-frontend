@@ -32,7 +32,7 @@ import DeletePost from "./DeletePost.vue"
         methods: {
             getPosts: function() {
                 axios.request({
-                   url: "http://127.0.0.1:5000/post",
+                   url: "http://daisyblog.ml/api/post",
                    method: "GET",
                 })
                 .then((response) => {
