@@ -5,7 +5,6 @@
             <upload-post></upload-post>
             <view-post></view-post>
             <log-out></log-out>
-            <delete-user></delete-user>
         </div>
         <div v-else>
             <h3>You have not logined in!</h3>
@@ -18,7 +17,6 @@
 import UploadPost from "../components/UploadPost.vue"
 import ViewPost from "../components/ViewPost.vue"
 import LogOut from "../components/LogOut.vue"
-import DeleteUser from "../components/DeleteUser.vue"
 import cookies from 'vue-cookies'
 
 export default {
@@ -26,8 +24,7 @@ export default {
     components: {
     UploadPost,
     ViewPost,
-    LogOut,
-    DeleteUser
+    LogOut
     },
     data() {
         return {
